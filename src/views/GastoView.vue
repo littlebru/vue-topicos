@@ -19,7 +19,7 @@
       </form>
       <br>
       <h2>Cadastradas</h2>
-      <p>Buscar <input type="text" v-model="busca"/><button @click="buscarAnotacao">Pesquisar</button></p>
+      <p>Buscar <input type="number" v-model="busca"/><button @click="buscarGasto">Pesquisar</button></p>
       <div class="table-group">
       <table class="table table-striped">
         <thead>
@@ -49,6 +49,7 @@
       return {
         descricao: '',
         valor:'',
+        busca: '',
         gastos: []
       }
     },
@@ -77,7 +78,7 @@
           .catch(error => console.log(error))
       },
       buscarGasto(){
-        axios.get('gasto/' + this.busca)
+        axios.get('/gasto/' + this.busca)
           .then(res => {
             this.gastos = res.data
           })

@@ -25,7 +25,7 @@
       </form>
       <br>
       <h2>Cadastradas</h2>
-      <p>Buscar <input type="text" v-model="busca"/><button @click="buscarAnotacao">Pesquisar</button></p>
+      <p>Buscar <input type="text" v-model="busca"/><button @click="buscarLocalidade">Pesquisar</button></p>
       <div class="table-group">
       <table class="table table-striped">
         <thead>
@@ -87,7 +87,7 @@
           })
           .catch(error => console.log(error))
       },
-      buscarAnotacao(){
+      buscarLocalidade(){
         axios.get('/localidade/' + this.busca)
           .then(res => {
             this.localidades = res.data
