@@ -21,6 +21,21 @@ const routes = [
     path: '/anotacao',
     name: 'anotacao',
     component: () => import('../views/AnotacaoView.vue')
+  },
+  {
+    path: '/gasto',
+    name: 'gasto',
+    component: () => import('../views/GastoView.vue')
+  },
+  {
+    path: '/lance',
+    name: 'lance',
+    component: () => import('../views/LanceView.vue')
+  },
+  {
+    path: '/localidade',
+    name: 'localidade',
+    component: () => import('../views/LocalidadeView.vue')
   }
 ]
 

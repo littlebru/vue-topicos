@@ -4,6 +4,9 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/usuario">Usuario</router-link> |
     <router-link to="/anotacao">Anotação</router-link>  |
+    <router-link to="/gasto">Gasto</router-link>  |
+    <router-link to="/lance">Lances</router-link>  |
+    <router-link to="/localidade">Localidades</router-link>  |
     <router-link to="/login">Login</router-link>
   </nav>
   <router-view/>
