@@ -3,12 +3,23 @@
       <form @submit.prevent="salvar">
         <h2>Lances</h2>
         <div class="form-group">
-          <label for="texto">Texto</label>
+          <label for="jogador">Jogador</label>
           <br>
-          <textarea id="texto"
+          <input type="text" id="jogador"
               class="form-control" required
-              v-model="texto">
-          </textarea>
+              v-model="jogador"/>
+            <br>
+            <label for="descricao">Descrição</label>
+            <br>
+            <input type="text" id="descricao"
+              class="form-control" required
+              v-model="descricao"/>
+              <br>
+              <label for="data">Data</label>
+            <br>
+            <input type="date" id="data"
+              class="form-control" required
+              v-model="data"/>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
       </form>
@@ -54,7 +65,7 @@
       salvar() {
         axios.post('lance/',
             {
-              dataHora: this.dataHora,
+              dataHora: this.data,
               jogador: this.jogador,
               descricao: this.descricao
             })

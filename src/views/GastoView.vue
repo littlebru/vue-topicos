@@ -7,13 +7,13 @@
           <br>
           <input type="number" id="valor"
               class="form-control" required
-              v-model="texto"/>
+              v-model="valor"/>
             <br>
             <label for="descricao">Descrição</label>
             <br>
             <input type="text" id="descricao"
               class="form-control" required
-              v-model="texto"/>
+              v-model="descricao"/>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
       </form>
@@ -68,7 +68,7 @@
           .catch(error => console.log(error))
       },
       atualizar () {
-        axios.get('/gasto/', 
+        axios.get('gasto/', 
             { headers: { Accept: 'application/json' } })
           .then(res => {
             this.gastos = res.data
@@ -77,7 +77,7 @@
           .catch(error => console.log(error))
       },
       buscarGasto(){
-        axios.get('/gasto/' + parseFloat(this.busca))
+        axios.get('gasto/' + this.busca)
           .then(res => {
             this.gastos = res.data
           })

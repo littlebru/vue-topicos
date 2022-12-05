@@ -3,17 +3,23 @@
       <form @submit.prevent="salvar">
         <h2>Localidades</h2>
         <div class="form-group">
-            <label for="latitude">Valor</label>
+            <label for="latitude">Latitude</label>
           <br>
-          <input type="number" id="valor"
+          <input type="number" id="latitude"
               class="form-control" required
-              v-model="texto"/>
+              v-model="latitude"/>
             <br>
-            <label for="descricao">Descrição</label>
+            <label for="longitude">Longitude</label>
+            <br>
+            <input type="number" id="longitude"
+              class="form-control" required
+              v-model="longitude"/>
+              <br>
+              <label for="descricao">Descrição</label>
             <br>
             <input type="text" id="descricao"
               class="form-control" required
-              v-model="texto"/>
+              v-model="descricao"/>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
       </form>
@@ -49,7 +55,9 @@
   export default {
     data() {
       return {
-        texto: '',
+        latitude:'',
+        longitude:'',
+        descricao:'',
         localidades: []
       }
     },
@@ -57,11 +65,14 @@
       salvar() {
         axios.post('localidade/',
             {
-              texto: this.texto,
-              usuario: this.usuario
+              latitude: this.latitude,
+              longitude: this.longitude,
+              descricao: this.descricao
             })
           .then(() =>{
-            this.texto = '';
+            this.latitude = '';
+            this.longitude = '';
+            this.descricao = '';
             alert('Cadastrado com sucesso!')
             this.atualizar();
           })
